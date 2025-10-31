@@ -55,14 +55,7 @@ function setup() {
 
   // Add click event to the reset button
   bR.addEventListener("click", () => {
-    // Reset the counter to 0
-    c = 0;
-    // Update the counter display
-    ctr.innerHTML = `${c}`;
-    // Update the document title
-    document.title = "Clicked " + c;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+    counterUpdate(-c);
   });
 }
 
