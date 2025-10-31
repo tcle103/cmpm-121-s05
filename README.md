@@ -38,3 +38,31 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
 2. Under "Source", select "GitHub Actions"
 3. The workflow will automatically deploy on pushes to the `main` branch
 4. Your site will be published at `https://<your-github-username>.github.io/<repository-name>/`
+
+```js
+// Add click event to the increment button
+bI.addEventListener("click", () => {
+  // Increase the counter by 1
+  c++;
+  // Update the counter display
+  ctr.innerHTML = `${c}`;
+  // Update the document title
+  document.title = "Clicked " + c;
+  // Change the background color based on even/odd count
+  document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+});
+```
+
+```js
+// Add click event to the decrement button
+bD.addEventListener("click", () => {
+  // Decrease the counter by 1
+  c--;
+  // Update the counter display
+  ctr.innerHTML = `${c}`;
+  // Update the document title
+  document.title = "Clicked " + c;
+  // Change the background color based on even/odd count
+  document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+});
+```

@@ -28,16 +28,24 @@ function setup() {
   // Check if any element is missing, then exit the function
   if (!bI || !bD || !bR || !ctr) return;
 
-  // Add click event to the increment button
-  bI.addEventListener("click", () => {
-    // Increase the counter by 1
-    c++;
+  // make counter num updates into another function
+  // to reduce
+  function counterUpdate(amt: number) {
+    // Increase counter by amt
+    c += amt;
     // Update the counter display
-    ctr.innerHTML = `${c}`;
+    if (ctr) {
+      ctr.innerHTML = `${c}`;
+    }
     // Update the document title
     document.title = "Clicked " + c;
     // Change the background color based on even/odd count
     document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+  }
+
+  // Add click event to the increment button
+  bI.addEventListener("click", () => {
+    counterUpdate(1);
   });
 
   // Add click event to the decrement button
