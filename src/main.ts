@@ -50,14 +50,7 @@ function setup() {
 
   // Add click event to the decrement button
   bD.addEventListener("click", () => {
-    // Decrease the counter by 1
-    c--;
-    // Update the counter display
-    ctr.innerHTML = `${c}`;
-    // Update the document title
-    document.title = "Clicked " + c;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+    counterUpdate(-1);
   });
 
   // Add click event to the reset button
