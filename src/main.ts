@@ -45,16 +45,20 @@ function setup() {
 
   // Add click event to the increment button
   bI.addEventListener("click", () => {
+    // Increase counter by 1 and update display
     counterUpdate(1);
   });
 
   // Add click event to the decrement button
   bD.addEventListener("click", () => {
+    // Decrease counter by 1 and update display
     counterUpdate(-1);
   });
 
   // Add click event to the reset button
   bR.addEventListener("click", () => {
+    // Set counter to 0 by adding negative counter value
+    // and update display
     counterUpdate(-c);
   });
 }
