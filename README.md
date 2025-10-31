@@ -39,6 +39,10 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
 3. The workflow will automatically deploy on pushes to the `main` branch
 4. Your site will be published at `https://<your-github-username>.github.io/<repository-name>/`
 
+### Extracted function out of increment/decrement/reset button code to reduce repeated code.
+
+Before:
+
 ```js
 // Add click event to the increment button
 bI.addEventListener("click", () => {
@@ -64,5 +68,59 @@ bD.addEventListener("click", () => {
   document.title = "Clicked " + c;
   // Change the background color based on even/odd count
   document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+});
+```
+
+```js
+// Add click event to the reset button
+bR.addEventListener("click", () => {
+  // Reset the counter to 0
+  c = 0;
+  // Update the counter display
+  ctr.innerHTML = `${c}`;
+  // Update the document title
+  document.title = "Clicked " + c;
+  // Change the background color based on even/odd count
+  document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+});
+```
+
+After:
+
+```js
+// make counter num updates into another function
+  // to reduce repeated code
+  function counterUpdate(amt: number) {
+    // Increase counter by amt
+    c += amt;
+    // Update the counter display
+    if (ctr) {
+      ctr.innerHTML = `${c}`;
+    }
+    // Update the document title
+    document.title = "Clicked " + c;
+    // Change the background color based on even/odd count
+    document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+  }
+```
+
+```js
+// Add click event to the increment button
+bI.addEventListener("click", () => {
+  // Increase counter by 1 and update display
+  counterUpdate(1);
+});
+
+// Add click event to the decrement button
+bD.addEventListener("click", () => {
+  // Decrease counter by 1 and update display
+  counterUpdate(-1);
+});
+
+// Add click event to the reset button
+bR.addEventListener("click", () => {
+  // Set counter to 0 by adding negative counter value
+  // and update display
+  counterUpdate(-c);
 });
 ```

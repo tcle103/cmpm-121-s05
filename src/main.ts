@@ -29,7 +29,7 @@ function setup() {
   if (!bI || !bD || !bR || !ctr) return;
 
   // make counter num updates into another function
-  // to reduce
+  // to reduce repeated code
   function counterUpdate(amt: number) {
     // Increase counter by amt
     c += amt;
