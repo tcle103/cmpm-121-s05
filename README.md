@@ -1,44 +1,5 @@
 # Section 5 – Refactoring Code Smells in Practice
 
-This activity is designed to help you practice identifying code smells and applying refactoring patterns to a real codebase in CMPM 121, Game Development Patterns.
-
-## Assignment Instructions
-
-For this assignment, your task is to **analyze and improve the code in `src/main.ts`**:
-
-1. **Identify code smells**: Review the code and look for patterns that may cause maintenance issues, reduce readability, or introduce potential bugs.
-2. **Refactor**: Apply **refactoring patterns** as described in Fowler’s _Refactoring_ book to improve the code.
-3. **Document your work**: Once you have completed your refactoring:
-   - Rewrite this README.md
-   - List the **code smells** you identified
-   - Describe the **refactoring patterns** you applied and how they improved the code
-
-## Getting Started
-
-With Codespaces (or another environment supporting devcontainers):
-
-1. Run `deno task dev` to start the development server
-
-Without Codespaces (local VS Code):
-
-1. Install the [Deno](https://docs.deno.com/runtime/getting_started/installation/) runtime.
-2. Install the Deno VS Code extension (must be done only after installing Deno runtime).
-3. Run `./setup-hooks.sh` to enable pre-commit quality checks
-4. Run `deno task dev` to start the development server
-
-The setup script configures Git hooks to automatically run formatting, linting, and type checking before commits.
-
-## Deployment
-
-This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
-
-### Setup GitHub Pages Deployment
-
-1. Go to your repository's Settings → Pages
-2. Under "Source", select "GitHub Actions"
-3. The workflow will automatically deploy on pushes to the `main` branch
-4. Your site will be published at `https://<your-github-username>.github.io/<repository-name>/`
-
 ### Extracted function out of increment/decrement/reset button code to reduce repeated code.
 
 Before:
@@ -132,6 +93,9 @@ Before:
 ```js
 // This variable keeps track of the counter
 let c = 0;
+
+// These constants are for button IDs and heading text
+const a = "increment", b = "counter", h = "CMPM 121 Project";
 ```
 
 After:
@@ -139,4 +103,53 @@ After:
 ```js
 // This variable keeps track of the counter
 let counter = 0;
+
+// These constants are for button IDs and heading text
+const incrementID = "increment",
+  counterID = "counter",
+  headerID = "CMPM 121 Project";
+```
+
+### Added missing button labels to label constants for consistency
+
+Before:
+
+```js
+// These constants are for button IDs and heading text
+const incrementID = "increment",
+  counterID = "counter",
+  headerID = "CMPM 121 Project";
+```
+
+```js
+// Get the increment button element from the document
+const bI = document.getElementById(a);
+// Get the decrement button element from the document
+const bD = document.getElementById("dec");
+// Get the reset button element from the document
+const bR = document.getElementById("reset");
+// Get the counter span element from the document
+const ctr = document.getElementById(b);
+```
+
+After:
+
+```js
+// These constants are for button IDs and heading text
+const incrementID = "increment",
+  counterID = "counter",
+  decrementID = "decrement",
+  resetID = "reset",
+  headerID = "CMPM 121 Project";
+```
+
+```js
+// Get the increment button element from the document
+const bI = document.getElementById(incrementID);
+// Get the decrement button element from the document
+const bD = document.getElementById(decrementID);
+// Get the reset button element from the document
+const bR = document.getElementById(resetID);
+// Get the counter span element from the document
+const ctr = document.getElementById(counterID);
 ```
