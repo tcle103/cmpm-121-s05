@@ -124,3 +124,19 @@ bR.addEventListener("click", () => {
   counterUpdate(-c);
 });
 ```
+
+### Changed variable name for readability
+
+Before:
+
+```js
+// This variable keeps track of the counter
+let c = 0;
+```
+
+After:
+
+```js
+// This variable keeps track of the counter
+let counter = 0;
+```

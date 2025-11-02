@@ -1,7 +1,7 @@
 // CMPM 121 Smelly Code Activity
 
 // This variable keeps track of the counter
-let c = 0;
+let counter = 0;
 
 // These constants are for button IDs and heading text
 const a = "increment", b = "counter", h = "CMPM 121 Project";
@@ -10,16 +10,16 @@ const a = "increment", b = "counter", h = "CMPM 121 Project";
 // to reduce repeated code
 function counterUpdate(amt: number) {
   // Increase counter by amt
-  c += amt;
+  counter += amt;
   // Update the counter display
   const ctr = document.getElementById(b);
   if (ctr) {
-    ctr.innerHTML = `${c}`;
+    ctr.innerHTML = `${counter}`;
   }
   // Update the document title
-  document.title = "Clicked " + c;
+  document.title = "Clicked " + counter;
   // Change the background color based on even/odd count
-  document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+  document.body.style.backgroundColor = counter % 2 ? "pink" : "lightblue";
 }
 
 function setup() {
@@ -60,7 +60,7 @@ function setup() {
   bR.addEventListener("click", () => {
     // Set counter to 0 by adding negative counter value
     // and update display
-    counterUpdate(-c);
+    counterUpdate(-counter);
   });
 }
 
